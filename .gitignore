@@ -1,0 +1,14 @@
+*.pyc
+*~
+.*.swp
+\#*#
+/secrets.py
+.DS_Store
+._*
+/content_links.egg-info
+/MANIFEST
+/_build
+/build
+/dist
+tests/test.zip
+/docs/_build
