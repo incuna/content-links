@@ -54,7 +54,8 @@ class ContentLink(SectionContent):
         ],
     }
     target = models.ForeignKey('page.Page', blank=True, null=True,
-        verbose_name=_('Target page'), related_name='content_pages',
+        verbose_name=_('Target page'),
+        related_name='%(app_label)s_%(class)s_related',
         help_text=_('''Page to be linked to. Do not add both "Target page" and
             "Target URL".''')
     )
