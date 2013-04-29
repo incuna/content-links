@@ -1,4 +1,3 @@
-from django import forms
 from django.db import models
 from django.forms import ValidationError
 from django.template.loader import render_to_string
@@ -7,13 +6,9 @@ from django.utils.translation import ugettext_lazy as _
 from feincms import settings
 from feincms.admin.item_editor import ItemEditorForm
 from feincms.content.section.models import SectionContent, SectionContentInline
-from feincms.module.medialibrary.models import MediaFile
 
 
 class ContentLinkItemEditorForm(ItemEditorForm):
-    mediafile = forms.ModelChoiceField(label=_('Image file'), required=False,
-        queryset=MediaFile.objects.filter(type='image'))
-
     def clean_mediafile(self):
         mediafile = self.cleaned_data.get('mediafile', None)
         if mediafile and not mediafile.type == 'image':
@@ -32,6 +27,7 @@ class ContentLinkItemEditorForm(ItemEditorForm):
 
 class ContentLinkAdminInline(SectionContentInline):
     form = ContentLinkItemEditorForm
+    raw_id_fields = ('mediafile', 'target')
 
 
 class ContentLink(SectionContent):
