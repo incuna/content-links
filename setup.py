@@ -8,7 +8,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     version=content_links.__version__,
-    description='',
+    description='A FeinCMS content type app which allows you to link other FeinCMS pages',
     long_description=open('README.rst').read(),
     author=content_links.__author__,
     author_email='admin@incuna.com',
